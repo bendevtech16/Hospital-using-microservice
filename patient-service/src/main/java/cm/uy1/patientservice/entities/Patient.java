@@ -1,6 +1,5 @@
 package cm.uy1.patientservice.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +20,6 @@ public class Patient {
     private long id;
     private String name;
     private String address;
-    @Column(unique = true)
     private String phone;
     private long age;
 }
