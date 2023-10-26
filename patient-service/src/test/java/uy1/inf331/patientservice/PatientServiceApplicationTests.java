@@ -1,4 +1,4 @@
-package cm.uy1.patientservice;
+package uy1.inf331.patientservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
