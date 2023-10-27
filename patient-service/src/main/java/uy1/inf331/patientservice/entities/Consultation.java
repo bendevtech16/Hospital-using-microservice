@@ -26,7 +26,7 @@ public class Consultation {
     private Date dateConsultation;
     private String rapportConsultation;
     private double prixConsultation;
-    @OneToOne(mappedBy = "consultation")
-    private RendezVous rendezVous;
+//    @OneToOne(mappedBy = "consultation")
+//    private RendezVous rendezVous;
 
 }

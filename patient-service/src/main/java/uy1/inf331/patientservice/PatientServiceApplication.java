@@ -65,7 +65,7 @@ public class PatientServiceApplication {
 
 			medecinRepository.save(Medecin.builder()
 					.name("Dr jean")
-					.email("jean@gmail.com")
+					.email("jeaen@gmail.com")
 					.telephone("624567898")
 					.specialite(Specialiste.OPHTAMOLOGUE)
 					.build());

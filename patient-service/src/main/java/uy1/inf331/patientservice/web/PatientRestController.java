@@ -61,7 +61,7 @@ public class PatientRestController {
     }
 
     @GetMapping("search/{id}")
-    public Optional<Patient> handlerfindById(@PathVariable long id) {
+    public Optional<Patient> handlefindById(@PathVariable long id) {
 
         return patientServiceImpl.handleFindById(id);
     }

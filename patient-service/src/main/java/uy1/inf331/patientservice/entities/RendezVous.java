@@ -25,10 +25,10 @@ public class RendezVous {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date dateRDV;
-    @ManyToOne
-    private Patient patient;
-    @ManyToOne
-    private Medecin medecin;
-    @OneToOne
-    private Consultation consultation;
+//    @ManyToOne
+//    private Patient patient;
+//    @ManyToOne
+//    private Medecin medecin;
+//    @OneToOne
+//    private Consultation consultation;
 }

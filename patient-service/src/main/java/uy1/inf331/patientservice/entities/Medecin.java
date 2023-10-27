@@ -35,6 +35,6 @@ public class Medecin {
     private String email;
     @Column(unique = true)
     private String telephone;
-    @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
-    private Collection<RendezVous> listRendeVous;
+//    @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
+//    private Collection<RendezVous> listRendeVous;
 }
