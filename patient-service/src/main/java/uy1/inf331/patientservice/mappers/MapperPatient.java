@@ -1,7 +1,5 @@
 package uy1.inf331.patientservice.mappers;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Component;
 
 import uy1.inf331.patientservice.dto.PatientDTO;

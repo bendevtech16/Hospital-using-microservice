@@ -71,7 +71,7 @@ public class PatientServiceImpl implements Ipatient {
      *         on recuperere le patient sauvegarder et reconvertit en dto
      */
     public PatientDTO savePatient(PatientDTO patientDTO) {
-        log.info("Saving Ptient...");
+        log.info("Saving Patient...");
         Patient patient2 = mapperPatient.fromPatientDTO(patientDTO);
         Patient patient3 = patientRepository.save(patient2);
         return mapperPatient.fromPatient(patient3);
