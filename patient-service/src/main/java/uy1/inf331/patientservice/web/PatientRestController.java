@@ -3,21 +3,18 @@ package uy1.inf331.patientservice.web;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import lombok.AllArgsConstructor;
 import uy1.inf331.patientservice.dto.PatientDTO;
 import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.exceptions.FindByNameOrPhoneNotFoundExeception;
 import uy1.inf331.patientservice.exceptions.NoSavingException;
 import uy1.inf331.patientservice.exceptions.PatientListNotFoundException;
+import uy1.inf331.patientservice.repository.PatientRepository;
 import uy1.inf331.patientservice.services.PatientServiceImpl;
 
 @RestController
@@ -25,7 +22,6 @@ import uy1.inf331.patientservice.services.PatientServiceImpl;
 @RequestMapping("/service-patient")
 public class PatientRestController {
     private final PatientServiceImpl patientServiceImpl;
-
     /**
      * returne la liste des patients
      *
@@ -48,13 +44,11 @@ public class PatientRestController {
      * @throws NoSavingException
      */
     @PostMapping("/save")
-    public ResponseEntity<PatientDTO> savingPatient(@RequestBody PatientDTO patientDTO) {
-
-        PatientDTO patientDTO2 = patientServiceImpl.savePatient(patientDTO);
-        return ResponseEntity.ok(patientDTO2);
+    public PatientDTO savingPatient(@RequestBody PatientDTO patientDTO) {
+        return patientServiceImpl.savePatient(patientDTO);
     }
 
-    @PostMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
     public void getPatientDTO(Long id) throws FindByNameOrPhoneNotFoundExeception {
 
         patientServiceImpl.deleleteById(id);

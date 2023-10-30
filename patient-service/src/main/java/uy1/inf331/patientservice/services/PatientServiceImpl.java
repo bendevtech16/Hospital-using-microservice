@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,11 @@ import uy1.inf331.patientservice.repository.PatientRepository;
 
 @Service
 @Transactional
-@AllArgsConstructor
+//@AllArgsConstructor
 @Builder
 @Slf4j
 public class PatientServiceImpl implements Ipatient {
+    @Autowired
     private PatientRepository patientRepository;
     private MapperPatient mapperPatient;
 
@@ -55,11 +57,10 @@ public class PatientServiceImpl implements Ipatient {
 
     public Optional<Patient> handleFindById(long id) {
         log.info("Finding Patient...");
-        if (patientRepository.findById(id) != null) {
+        if (patientRepository.findById(id).isPresent()) {
             return patientRepository.findById(id);
         } else
             throw new RuntimeException("le patient avec l'identifiant " + id + "est introuvable");
-
     }
 
     /**

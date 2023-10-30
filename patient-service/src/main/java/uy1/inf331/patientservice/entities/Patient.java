@@ -19,15 +19,11 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "name")
     private String name;
-    @Column(name = "email")
     private String email;
-    @Column(name = "age")
     private int age;
-    @Column(name = "telephone")
     private String telephone;
-//    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
-//    private Collection<RendezVous> listRendeVous;
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
+    private Collection<RendezVous> listRendeVous;
 
 }

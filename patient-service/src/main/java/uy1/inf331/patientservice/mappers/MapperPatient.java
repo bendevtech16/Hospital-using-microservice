@@ -1,33 +1,24 @@
 package uy1.inf331.patientservice.mappers;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Service;
 import uy1.inf331.patientservice.dto.PatientDTO;
 import uy1.inf331.patientservice.entities.Patient;
 
-@Component
+@Service
 public class MapperPatient {
 
-    public PatientDTO fromPatient(Patient savedPatient) {
-        PatientDTO patientDTO = new PatientDTO();
-        patientDTO.setName(savedPatient.getName());
-        patientDTO.setEmail(savedPatient.getEmail());
-        patientDTO.setAge(savedPatient.getAge());
-        patientDTO.setId(savedPatient.getId());
-        patientDTO.setTelephone(savedPatient.getTelephone());
-        return patientDTO;
+    private ModelMapper modelMapper = new ModelMapper();
+    public PatientDTO fromPatient(Patient patient) {
+
+        return modelMapper.map(patient , PatientDTO.class);
 
     }
 
     public Patient fromPatientDTO(PatientDTO patientDTO) {
-        Patient patient = new Patient();
-        patient.setName(patientDTO.getName());
-        patient.setEmail(patientDTO.getEmail());
-        patient.setAge(patientDTO.getAge());
-        patient.setId(patientDTO.getId());
-        patient.setTelephone(patientDTO.getTelephone());
-        return patient;
-
+        return  modelMapper.map(patientDTO, Patient.class);
     }
 
 }
