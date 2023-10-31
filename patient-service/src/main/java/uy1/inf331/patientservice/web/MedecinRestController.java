@@ -1,14 +1,15 @@
 package uy1.inf331.patientservice.web;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.constraints.Min;
+import org.springframework.web.bind.annotation.*;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import lombok.AllArgsConstructor;
 import uy1.inf331.patientservice.dto.MedecinDTO;
 import uy1.inf331.patientservice.entities.Medecin;
 import uy1.inf331.patientservice.services.MedecinService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/medecin-service")
@@ -16,8 +17,12 @@ import uy1.inf331.patientservice.services.MedecinService;
 public class MedecinRestController {
     private final MedecinService medecinService;
 
-    @PostMapping("/save")
+    @PostMapping("/medecin/save")
     public MedecinDTO handleSaveMedecin(@RequestBody MedecinDTO medecinDTO){
             return medecinService.saveMedecin(medecinDTO);
     }
+    @GetMapping(value = "/medecins")
+    public List<MedecinDTO> hanndleFindAllMedecins(){
+        return medecinService.getAllMedecins();
+     }
 }
