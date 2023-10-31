@@ -12,5 +12,4 @@ public class MedecinDTO {
     private String specialite;
     private String email;
     private String telephone;
-    private List<RendezVous> listRendeVous;
 }

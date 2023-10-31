@@ -4,17 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import uy1.inf331.patientservice.dto.PatientDTO;
 import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.exceptions.FindByNameOrPhoneNotFoundExeception;
 import uy1.inf331.patientservice.exceptions.NoSavingException;
 import uy1.inf331.patientservice.exceptions.PatientListNotFoundException;
-import uy1.inf331.patientservice.repository.PatientRepository;
 import uy1.inf331.patientservice.services.PatientServiceImpl;
 
 @RestController
@@ -45,7 +44,11 @@ public class PatientRestController {
      */
     @PostMapping("/save")
     public PatientDTO savingPatient(@RequestBody PatientDTO patientDTO) {
+
+        System.out.println(patientDTO.toString());
         return patientServiceImpl.savePatient(patientDTO);
+//        return patientServiceImpl.savePatient(patientDTO);
+
     }
 
     @DeleteMapping("delete/{id}")
@@ -64,7 +67,7 @@ public class PatientRestController {
     public ResponseEntity<PatientDTO> handleUpdate(
             @PathVariable long id,
             @RequestBody PatientDTO patientDTO) throws FindByNameOrPhoneNotFoundExeception {
-
+            patientDTO.setId(id);
         return patientServiceImpl.update(id, patientDTO);
     }
 

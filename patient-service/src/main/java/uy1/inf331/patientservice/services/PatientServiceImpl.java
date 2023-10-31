@@ -32,7 +32,6 @@ public class PatientServiceImpl implements Ipatient {
     /**
      * cette methode retourne ula listee des patient disponible
      * 
-     * @param patientRepository
      * @return get all patient
      */
     @Override
@@ -73,9 +72,11 @@ public class PatientServiceImpl implements Ipatient {
      */
     public PatientDTO savePatient(PatientDTO patientDTO) {
         log.info("Saving Patient...");
-        Patient patient2 = mapperPatient.fromPatientDTO(patientDTO);
-        Patient patient3 = patientRepository.save(patient2);
-        return mapperPatient.fromPatient(patient3);
+        Patient patient = new Patient();
+        patient.setId(patientDTO.getId());
+        patient = mapperPatient.fromPatientDTO(patientDTO);
+        Patient patient2 = patientRepository.save(patient);
+        return mapperPatient.fromPatient(patient2);
     }
 
     /**
@@ -132,7 +133,7 @@ public class PatientServiceImpl implements Ipatient {
      * methode pour modifirer un patient
      * 
      * @param id             id du patien a modifier
-     * @param patientModifie nouveau patient a remplacer
+     * @param patientModifieDTO nouveau patient a remplacer
      * @return returne le patient modifie
      * @throws FindByNameOrPhoneNotFoundExeception
      */
@@ -143,7 +144,6 @@ public class PatientServiceImpl implements Ipatient {
         if (optionalPatient.isPresent()) {
             Patient patient = optionalPatient.get();
             patient.setId(id);
-            patient.setId(patientModifieDTO.getId());
             patient.setAge(patientModifieDTO.getAge());
             patient.setEmail(patientModifieDTO.getEmail());
             patient.setTelephone(patientModifieDTO.getTelephone());

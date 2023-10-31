@@ -2,6 +2,7 @@ package uy1.inf331.patientservice.entities;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -35,6 +36,7 @@ public class Medecin {
     private String email;
     @Column(unique = true)
     private String telephone;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
     private Collection<RendezVous> listRendeVous;
 }

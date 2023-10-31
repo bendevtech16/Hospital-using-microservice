@@ -10,7 +10,7 @@ import uy1.inf331.patientservice.entities.Patient;
 @Service
 public class MapperPatient {
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper = new ModelMapper();
     public PatientDTO fromPatient(Patient patient) {
 
         return modelMapper.map(patient , PatientDTO.class);
