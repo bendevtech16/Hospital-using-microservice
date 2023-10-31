@@ -25,4 +25,5 @@ public class MedecinRestController {
     public List<MedecinDTO> hanndleFindAllMedecins(){
         return medecinService.getAllMedecins();
      }
+
 }
