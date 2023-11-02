@@ -40,4 +40,17 @@ public class MedecinService {
         return medecinDTOList;
     }
 
+    public List<MedecinDTO> findAllBySpecialist(String specialite){
+        log.info("getting medecin from one specialist");
+        List<Medecin> medecinList = new ArrayList<>();
+        List<MedecinDTO> medecinDTOList = new ArrayList<>();
+
+        medecinList = medecinRepository.findBySpecialiste(specialite);
+        for (Medecin m:medecinList) {
+            MedecinDTO medecinDTO =mapperMedecin.fromMedecin(m);
+            medecinDTOList.add(medecinDTO);
+        }
+        return medecinDTOList;
+    }
+
 }

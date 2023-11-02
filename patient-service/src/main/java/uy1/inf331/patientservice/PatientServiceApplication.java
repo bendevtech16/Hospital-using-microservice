@@ -67,28 +67,28 @@ public class PatientServiceApplication {
 					.name("Dr jean")
 					.email("jeaen@gmail.com")
 					.telephone("624567898")
-					.specialite(Specialiste.OPHTAMOLOGUE)
+					.specialiste(Specialiste.OPHTAMOLOGUE)
 					.build());
 
 			medecinRepository.save(Medecin.builder()
 					.name("Dr KENMOGNE JOEL")
 					.email("kenmogneJoel@gmail.com")
 					.telephone("624567890")
-					.specialite(Specialiste.KINESITHERAPEUTE)
+					.specialiste(Specialiste.anatomie)
 					.build());
 
 			medecinRepository.save(Medecin.builder()
 					.name("Dr ONGBA marie ")
 					.email("ongbamarie@gmail.com")
 					.telephone("624566898")
-					.specialite(Specialiste.NUTRITIONISTE)
+					.specialiste(Specialiste.allergologie)
 					.build());
 
 			medecinRepository.save(Medecin.builder()
 					.name("Dr mekeutiboua tafeutsop")
 					.email("mekeutiboua@gmail.com")
 					.telephone("6245567458")
-					.specialite(Specialiste.ODONTOSMATOLOGUE)
+					.specialiste(Specialiste.chirurgie)
 					.build());
 		};
 	}

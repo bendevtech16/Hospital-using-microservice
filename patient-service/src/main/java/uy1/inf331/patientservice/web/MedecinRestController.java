@@ -1,12 +1,10 @@
 package uy1.inf331.patientservice.web;
 
-import jakarta.validation.constraints.Min;
 import org.springframework.web.bind.annotation.*;
 
 
 import lombok.AllArgsConstructor;
 import uy1.inf331.patientservice.dto.MedecinDTO;
-import uy1.inf331.patientservice.entities.Medecin;
 import uy1.inf331.patientservice.services.MedecinService;
 
 import java.util.List;
@@ -26,4 +24,8 @@ public class MedecinRestController {
         return medecinService.getAllMedecins();
      }
 
+     @GetMapping("/medecinSpecialist/{keyWord}")
+     public List<MedecinDTO> handlefAllMedecinOfSpecialistWord(@PathVariable String keyWord){
+        return  medecinService.findAllBySpecialist(keyWord);
+     }
 }

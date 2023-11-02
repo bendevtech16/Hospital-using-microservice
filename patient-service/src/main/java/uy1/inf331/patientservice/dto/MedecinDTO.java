@@ -10,7 +10,7 @@ import uy1.inf331.patientservice.enums.Specialiste;
 public class MedecinDTO {
     private long id;
     private String name;
-    private Specialiste specialite;
+    private Specialiste specialiste;
     private String email;
     private String telephone;
 }
