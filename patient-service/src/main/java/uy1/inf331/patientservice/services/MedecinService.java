@@ -45,7 +45,7 @@ public class MedecinService {
         List<Medecin> medecinList = new ArrayList<>();
         List<MedecinDTO> medecinDTOList = new ArrayList<>();
 
-        medecinList = medecinRepository.findBySpecialiste(specialite);
+        medecinList = medecinRepository.findBySpecialistContaining(specialite);
         for (Medecin m:medecinList) {
             MedecinDTO medecinDTO =mapperMedecin.fromMedecin(m);
             medecinDTOList.add(medecinDTO);

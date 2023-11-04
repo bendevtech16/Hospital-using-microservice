@@ -36,7 +36,7 @@ public class Medecin {
     private String email;
     @Column(unique = true)
     private String telephone;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  
     @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
     private Collection<RendezVous> listRendeVous;
 }
