@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import uy1.inf331.patientservice.dto.MedecinDTO;
 import uy1.inf331.patientservice.entities.Medecin;
+import uy1.inf331.patientservice.enums.Specialiste;
 import uy1.inf331.patientservice.mappers.MapperMedecin;
 import uy1.inf331.patientservice.repository.MedecinRepository;
 
@@ -40,7 +41,7 @@ public class MedecinService {
         return medecinDTOList;
     }
 
-    public List<MedecinDTO> findAllBySpecialist(String specialite){
+    public List<MedecinDTO> findAllBySpecialist(Specialiste specialite){
         log.info("getting medecin from one specialist");
         List<Medecin> medecinList = new ArrayList<>();
         List<MedecinDTO> medecinDTOList = new ArrayList<>();

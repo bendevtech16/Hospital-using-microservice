@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import lombok.AllArgsConstructor;
 import uy1.inf331.patientservice.dto.MedecinDTO;
+import uy1.inf331.patientservice.enums.Specialiste;
 import uy1.inf331.patientservice.services.MedecinService;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class MedecinRestController {
      }
 
      @GetMapping("/medecinSpecialist/{keyWord}")
-     public List<MedecinDTO> handlefAllMedecinOfSpecialistWord(@PathVariable String keyWord){
+     public List<MedecinDTO> handlefAllMedecinOfSpecialistWord(@PathVariable Specialiste keyWord){
         return  medecinService.findAllBySpecialist(keyWord);
      }
 }
