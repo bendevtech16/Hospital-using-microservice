@@ -11,5 +11,5 @@ public class ConsultationDTO {
     private Date dateConsultation;
     private String rapportConsultation;
     private double prixConsultation;
-    private RendezVous rendezVous;
+
 }

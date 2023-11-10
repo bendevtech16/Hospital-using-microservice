@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import uy1.inf331.patientservice.dto.MedecinDTO;
 import uy1.inf331.patientservice.entities.Medecin;
 
+import java.util.Optional;
+
 
 @Service
 @AllArgsConstructor
@@ -17,7 +19,7 @@ public class MapperMedecin {
      * @param medecin
      * @return
      */
-    public MedecinDTO fromMedecin(Medecin medecin) {
+    public MedecinDTO fromMedecin(Optional<Medecin> medecin) {
         return modelMapper.map(medecin , MedecinDTO.class);
     }
 

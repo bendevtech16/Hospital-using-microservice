@@ -21,11 +21,10 @@ import uy1.inf331.patientservice.repository.PatientRepository;
 
 @Service
 @Transactional
-//@AllArgsConstructor
+@AllArgsConstructor
 @Builder
 @Slf4j
 public class PatientServiceImpl implements Ipatient {
-    @Autowired
     private PatientRepository patientRepository;
     private MapperPatient mapperPatient;
 
@@ -54,6 +53,11 @@ public class PatientServiceImpl implements Ipatient {
 
     }
 
+    /**
+     *
+     * @param id using to find by id.
+     * @return Patient found
+     */
     public Optional<Patient> handleFindById(long id) {
         log.info("Finding Patient...");
         if (patientRepository.findById(id).isPresent()) {
@@ -79,20 +83,6 @@ public class PatientServiceImpl implements Ipatient {
         return mapperPatient.fromPatient(patient2);
     }
 
-    /**
-     * recherche un patien par son nom.
-     * 
-     * @param name le parametre de recherche du patient
-     * @return returne le patient s'il existe.
-     * @throws FindByNameOrPhoneNotFoundExeception exeception generee en cas de
-     *                                             soucis.
-     */
-    public Patient findByName(String name) throws FindByNameOrPhoneNotFoundExeception {
-        if (name != null)
-            return patientRepository.findByName(name);
-        else
-            throw new FindByNameOrPhoneNotFoundExeception("patient non trouvé");
-    }
 
     /**
      * recherche une patiet pas phone
