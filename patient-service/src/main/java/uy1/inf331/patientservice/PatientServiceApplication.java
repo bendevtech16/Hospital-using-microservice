@@ -18,7 +18,7 @@ public class PatientServiceApplication {
 		SpringApplication.run(PatientServiceApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	CommandLineRunner start(PatientRepository patientRepository, MedecinRepository medecinRepository) {
 		return args -> {
 			patientRepository.save(Patient.builder()
@@ -91,6 +91,6 @@ public class PatientServiceApplication {
 					.specialiste(Specialiste.chirurgie)
 					.build());
 		};
-	}
+	}*/
 
 }

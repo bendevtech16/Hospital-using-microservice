@@ -1,8 +1,11 @@
 package uy1.inf331.patientservice.web;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uy1.inf331.patientservice.dto.ConsultationDTO;
+import uy1.inf331.patientservice.dto.MedecinDTO;
+import uy1.inf331.patientservice.entities.Consultation;
 import uy1.inf331.patientservice.exceptions.FindByNameOrPhoneNotFoundExeception;
 import uy1.inf331.patientservice.services.ConsultationService;
 
@@ -27,5 +30,13 @@ public class ConsultationRestController {
     @DeleteMapping("/delete/{id}")
     public void getPatientDTO(Long id) throws FindByNameOrPhoneNotFoundExeception {
         consultationService.deleleteById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ConsultationDTO> handleUpdate(
+            @PathVariable long id,
+            @RequestBody ConsultationDTO consultationDTO) throws FindByNameOrPhoneNotFoundExeception {
+        consultationDTO.setId(id);
+        return consultationService.update(id, consultationDTO);
     }
 }
