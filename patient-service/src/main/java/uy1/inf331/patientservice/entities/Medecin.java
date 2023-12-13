@@ -30,7 +30,7 @@ public class Medecin {
     private long id;
     private String name;
     @Enumerated(EnumType.STRING)
-    private Specialiste specialite;
+    private Specialiste specialiste;
     @Column(unique = true)
     private String email;
     @Column(unique = true)
