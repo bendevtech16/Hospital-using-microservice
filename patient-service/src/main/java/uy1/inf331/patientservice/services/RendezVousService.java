@@ -10,7 +10,6 @@ import uy1.inf331.patientservice.entities.Consultation;
 import uy1.inf331.patientservice.entities.Medecin;
 import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.entities.RendezVous;
-import uy1.inf331.patientservice.mappers.MapperRendezVous;
 import uy1.inf331.patientservice.repository.ConsultationRepository;
 import uy1.inf331.patientservice.repository.MedecinRepository;
 import uy1.inf331.patientservice.repository.PatientRepository;

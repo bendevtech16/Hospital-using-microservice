@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import uy1.inf331.patientservice.entities.Medecin;
-import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.enums.Specialiste;
 
 import java.util.List;

@@ -2,9 +2,7 @@ package uy1.inf331.patientservice.mappers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-import uy1.inf331.patientservice.dto.PatientDTO;
 import uy1.inf331.patientservice.dto.RendezVousDTO;
-import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.entities.RendezVous;
 
 @Component

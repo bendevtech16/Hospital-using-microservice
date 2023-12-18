@@ -1,7 +1,6 @@
 package uy1.inf331.patientservice.mappers;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Component;
 
 import org.springframework.stereotype.Service;
 import uy1.inf331.patientservice.dto.PatientDTO;

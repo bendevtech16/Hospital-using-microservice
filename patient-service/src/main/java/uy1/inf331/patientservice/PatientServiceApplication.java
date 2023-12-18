@@ -1,15 +1,7 @@
 package uy1.inf331.patientservice;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import uy1.inf331.patientservice.entities.Medecin;
-import uy1.inf331.patientservice.entities.Patient;
-import uy1.inf331.patientservice.enums.Specialiste;
-import uy1.inf331.patientservice.repository.MedecinRepository;
-import uy1.inf331.patientservice.repository.PatientRepository;
 
 @SpringBootApplication
 public class PatientServiceApplication {

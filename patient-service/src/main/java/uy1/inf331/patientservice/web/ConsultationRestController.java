@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uy1.inf331.patientservice.dto.ConsultationDTO;
-import uy1.inf331.patientservice.dto.MedecinDTO;
-import uy1.inf331.patientservice.entities.Consultation;
 import uy1.inf331.patientservice.exceptions.FindByNameOrPhoneNotFoundExeception;
 import uy1.inf331.patientservice.services.ConsultationService;
 

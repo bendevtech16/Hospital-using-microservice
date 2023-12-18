@@ -3,7 +3,6 @@ package uy1.inf331.patientservice.dto;
 import java.util.Date;
 
 import lombok.Data;
-import uy1.inf331.patientservice.entities.RendezVous;
 
 @Data
 public class ConsultationDTO {
