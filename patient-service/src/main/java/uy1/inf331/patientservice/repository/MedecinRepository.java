@@ -9,7 +9,6 @@ import uy1.inf331.patientservice.enums.Specialiste;
 
 import java.util.List;
 
-
 public interface MedecinRepository extends JpaRepository<Medecin, Long> {
     @Query("select m from Medecin m where m.specialiste like :keyword ")
     public List<Medecin> findBySpecialistContaining(@Param("keyword") Specialiste specialist);

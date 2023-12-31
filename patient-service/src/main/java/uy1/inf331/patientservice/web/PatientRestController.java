@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import uy1.inf331.patientservice.dto.PatientDTO;
 import uy1.inf331.patientservice.entities.Patient;
 import uy1.inf331.patientservice.exceptions.FindByNameOrPhoneNotFoundExeception;
@@ -21,6 +20,7 @@ import uy1.inf331.patientservice.services.PatientServiceImpl;
 @RequestMapping("/service-patient")
 public class PatientRestController {
     private final PatientServiceImpl patientServiceImpl;
+
     /**
      * returne la liste des patients
      *
@@ -47,7 +47,7 @@ public class PatientRestController {
 
         System.out.println(patientDTO.toString());
         return patientServiceImpl.savePatient(patientDTO);
-//        return patientServiceImpl.savePatient(patientDTO);
+        // return patientServiceImpl.savePatient(patientDTO);
 
     }
 
@@ -67,7 +67,7 @@ public class PatientRestController {
     public ResponseEntity<PatientDTO> handleUpdate(
             @PathVariable long id,
             @RequestBody PatientDTO patientDTO) throws FindByNameOrPhoneNotFoundExeception {
-            patientDTO.setId(id);
+        patientDTO.setId(id);
         return patientServiceImpl.update(id, patientDTO);
     }
 

@@ -82,7 +82,6 @@ public class PatientServiceImpl implements Ipatient {
         return mapperPatient.fromPatient(patient2);
     }
 
-
     /**
      * recherche une patiet pas phone
      * 
@@ -97,8 +96,7 @@ public class PatientServiceImpl implements Ipatient {
             Patient patient = patientRepository.findByTelephone(phone);
             PatientDTO patientDTO = mapperPatient.fromPatient(patient);
             return patientDTO;
-        }
-        else
+        } else
             throw new FindByNameOrPhoneNotFoundExeception("patient non trouvé");
     }
 
@@ -120,7 +118,7 @@ public class PatientServiceImpl implements Ipatient {
     /**
      * methode pour modifirer un patient
      * 
-     * @param id             id du patien a modifier
+     * @param id                id du patien a modifier
      * @param patientModifieDTO nouveau patient a remplacer
      * @return returne le patient modifie
      * @throws FindByNameOrPhoneNotFoundExeception
