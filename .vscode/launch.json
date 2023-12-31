@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "FacturationServiceApplication",
+            "request": "launch",
+            "mainClass": "uy1.inf331.facturationservice.FacturationServiceApplication",
+            "projectName": "facturation-service"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",
