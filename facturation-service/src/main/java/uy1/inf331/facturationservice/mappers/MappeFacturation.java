@@ -2,6 +2,7 @@ package uy1.inf331.facturationservice.mappers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,9 @@ public class MappeFacturation {
 
     private final ModelMapper modelMapper = new ModelMapper();
 
-    public FacturationDTO fromFacturation(Facturation facturation) {
+    public FacturationDTO fromFacturation(Optional<Facturation> optional) {
 
-        return modelMapper.map(facturation, FacturationDTO.class);
+        return modelMapper.map(optional, FacturationDTO.class);
 
     }
 

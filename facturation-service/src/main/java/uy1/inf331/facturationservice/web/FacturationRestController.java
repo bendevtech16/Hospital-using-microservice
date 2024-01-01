@@ -16,19 +16,19 @@ public class FacturationRestController {
 
     private final FacturationService facturationService;
 
-    @GetMapping("/facturations")
-    public List<FacturationDTO> handLeFindAll() {
-        return facturationService.findAll();
-    }
+    // @GetMapping("/facturations")
+    // public List<FacturationDTO> handLeFindAll() {
+    // return facturationService.findAll();
+    // }
 
     @GetMapping("/facturations/{id}")
     public FacturationDTO handLeFindById(@PathVariable Long id) {
-        return facturationService.findById(id);
+        return facturationService.handleFindById(id);
     }
 
-    @PostMapping("/facturations")
+    @PostMapping("/save")
     public FacturationDTO handLeSave(@RequestBody FacturationDTO facturationDTO) {
-        return facturationService.save(facturationDTO);
+        return facturationService.savingFacturation(facturationDTO);
     }
 
 }

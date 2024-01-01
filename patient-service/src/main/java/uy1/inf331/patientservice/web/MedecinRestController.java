@@ -3,7 +3,6 @@ package uy1.inf331.patientservice.web;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import lombok.AllArgsConstructor;
 import uy1.inf331.patientservice.dto.MedecinDTO;
 import uy1.inf331.patientservice.enums.Specialiste;
@@ -13,7 +12,6 @@ import uy1.inf331.patientservice.services.MedecinService;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/medecin-service")
 @AllArgsConstructor
@@ -21,18 +19,19 @@ public class MedecinRestController {
     private final MedecinService medecinService;
 
     @PostMapping("/medecin/save")
-    public MedecinDTO handleSaveMedecin(@RequestBody MedecinDTO medecinDTO){
-            return medecinService.saveMedecin(medecinDTO);
+    public MedecinDTO handleSaveMedecin(@RequestBody MedecinDTO medecinDTO) {
+        return medecinService.saveMedecin(medecinDTO);
     }
-    @GetMapping(value = "/medecins")
-    public List<MedecinDTO> hanndleFindAllMedecins(){
-        return medecinService.getAllMedecins();
-     }
 
-     @GetMapping("/medecinSpecialist/{keyWord}")
-     public List<MedecinDTO> handlefAllMedecinOfSpecialistWord(@PathVariable Specialiste keyWord){
-        return  medecinService.findAllBySpecialist(keyWord);
-     }
+    @GetMapping(value = "/medecins")
+    public List<MedecinDTO> handleFindAllMedecins() {
+        return medecinService.getAllMedecins();
+    }
+
+    @GetMapping("/medecinSpecialist/{keyWord}")
+    public List<MedecinDTO> handlefAllMedecinOfSpecialistWord(@PathVariable Specialiste keyWord) {
+        return medecinService.findAllBySpecialist(keyWord);
+    }
 
     @GetMapping("getOne/{id}")
     public Optional<MedecinDTO> handlefindById(@PathVariable long id) {
@@ -40,7 +39,7 @@ public class MedecinRestController {
     }
 
     @GetMapping("/search/{name}")
-    public  MedecinDTO handleFindByNameDoctor(@PathVariable String name) throws FindByNameOrPhoneNotFoundExeception {
+    public MedecinDTO handleFindByNameDoctor(@PathVariable String name) throws FindByNameOrPhoneNotFoundExeception {
         return medecinService.handlefindByName(name);
     }
 

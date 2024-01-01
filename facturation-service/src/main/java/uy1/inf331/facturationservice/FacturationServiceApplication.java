@@ -44,6 +44,18 @@ public class FacturationServiceApplication {
 					.montant(24580.0)
 					.patientId((long) 4)
 					.build());
+			facturationRepository.save(Facturation.builder()
+					.createdAt(LocalDate.now())
+					.id(null)
+					.montant(10080.0)
+					.patientId((long) 5)
+					.build());
+			facturationRepository.save(Facturation.builder()
+					.createdAt(LocalDate.now())
+					.id(null)
+					.montant(25080.0)
+					.patientId((long) 5)
+					.build());
 		};
 	}
 }
