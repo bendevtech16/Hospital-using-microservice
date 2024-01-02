@@ -26,15 +26,16 @@ public class FacturationService implements Ifacturation {
     private final FacturationRepository facturationRepository;
     private final MappeFacturation mappeFacturation;
 
-    public FacturationDTO savingFacturation(FacturationDTO facturationDTO) {
-        FacturationDTO facturationDTO2 = new FacturationDTO();
-        facturationDTO2 = facturationDTO;
+    // public FacturationDTO savingFacturation(FacturationDTO facturationDTO) {
+    // FacturationDTO facturationDTO2 = new FacturationDTO();
+    // facturationDTO2 = facturationDTO;
 
-        Facturation facturation = mappeFacturation.fromFacturationDTO(facturationDTO2);
-        Facturation f = facturationRepository.save(facturation);
+    // Facturation facturation =
+    // mappeFacturation.fromFacturationDTO(facturationDTO2);
+    // Facturation f = facturationRepository.save(facturation);
 
-        return mappeFacturation.fromFacturation(f);
-    }
+    // return mappeFacturation.fromFacturation(f);
+    // }
 
     // public FacturationDTO update(Long id, FacturationDTO facturationDTO) {
     // if (facturationRepository.findById(id) == null) {

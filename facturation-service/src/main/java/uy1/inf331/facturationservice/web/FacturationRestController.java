@@ -26,9 +26,10 @@ public class FacturationRestController {
         return facturationService.handleFindById(id);
     }
 
-    @PostMapping("/save")
-    public FacturationDTO handLeSave(@RequestBody FacturationDTO facturationDTO) {
-        return facturationService.savingFacturation(facturationDTO);
-    }
+    // @PostMapping("/save")
+    // public FacturationDTO handLeSave(@RequestBody FacturationDTO facturationDTO)
+    // {
+    // return facturationService.savingFacturation(facturationDTO);
+    // }
 
 }
