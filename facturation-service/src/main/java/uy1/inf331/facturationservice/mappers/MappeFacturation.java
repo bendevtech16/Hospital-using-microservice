@@ -16,7 +16,7 @@ public class MappeFacturation {
 
     private final ModelMapper modelMapper = new ModelMapper();
 
-    public FacturationDTO fromFacturation(Optional<Facturation> optional) {
+    public FacturationDTO fromFacturation(Facturation optional) {
 
         return modelMapper.map(optional, FacturationDTO.class);
 

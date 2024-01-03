@@ -26,64 +26,80 @@ public class FacturationService implements Ifacturation {
     private final FacturationRepository facturationRepository;
     private final MappeFacturation mappeFacturation;
 
-    // public FacturationDTO savingFacturation(FacturationDTO facturationDTO) {
-    // FacturationDTO facturationDTO2 = new FacturationDTO();
-    // facturationDTO2 = facturationDTO;
+    public FacturationDTO savingFacturation(FacturationDTO facturationDTO) {
+        FacturationDTO facturationDTO2 = new FacturationDTO();
+        facturationDTO2.setId(facturationDTO.getId());
+        facturationDTO2.setCreatedAt(facturationDTO.getCreatedAt());
+        facturationDTO2.setMontant(facturationDTO.getMontant());
+        facturationDTO2.setPatientId(facturationDTO.getPatientId());
 
-    // Facturation facturation =
-    // mappeFacturation.fromFacturationDTO(facturationDTO2);
-    // Facturation f = facturationRepository.save(facturation);
+        Facturation facturation = new Facturation();
+        facturation.setId(facturationDTO2.getId());
+        facturation.setCreatedAt(facturationDTO2.getCreatedAt());
+        facturation.setMontant(facturationDTO2.getMontant());
+        facturation.setPatientId(facturationDTO2.getPatientId());
+        Facturation facturationEnregistrer = facturationRepository.save(facturation);
 
-    // return mappeFacturation.fromFacturation(f);
-    // }
+        return mappeFacturation.fromFacturation(facturationEnregistrer);
+    }
 
-    // public FacturationDTO update(Long id, FacturationDTO facturationDTO) {
-    // if (facturationRepository.findById(id) == null) {
-    // System.out.println("facture not found...");
-    // } else {
-    // Facturation facturation = mappeFacturation.fromFacturation(facturationDTO);
-    // facturation.setId(id);
-    // return
-    // mappeFacturation.retourneFacturationDTO(facturationRepository.save(facturation));
-    // }
-    // return facturationDTO;
-    // }
+    public FacturationDTO update(Long id, FacturationDTO facturationDTO) {
+        if (facturationRepository.findById(id) == null) {
+            System.out.println("facture not found...");
+            return null;
+        } else {
+            Facturation facturation = new Facturation();
+            facturation.setId(id);
+            facturation.setCreatedAt(facturationDTO.getCreatedAt());
+            facturation.setMontant(facturationDTO.getMontant());
+            facturation.setPatientId(facturationDTO.getPatientId());
+            Facturation facturationEnregistrer = facturationRepository.save(facturation);
+            FacturationDTO facturationDTO2 = new FacturationDTO();
+            facturationDTO2.setId(facturationEnregistrer.getId());
+            facturationDTO2.setCreatedAt(facturationEnregistrer.getCreatedAt());
+            facturationDTO2.setMontant(facturationEnregistrer.getMontant());
+            facturationDTO2.setPatientId(facturationEnregistrer.getPatientId());
+            return facturationDTO2;
+        }
 
-    public void delete(Long id) {
+    }
+
+    public void deleteById(Long id) {
         facturationRepository.deleteById(id);
     }
 
-    // public List<FacturationDTO> findAll() {
-    // log.info("getting ressource in progress...");
+    public List<FacturationDTO> findAll() {
+        log.info("getting ressource in progress...");
 
-    // List<Facturation> list = new ArrayList<>();
-    // list = facturationRepository.findAll();
-    // List<FacturationDTO> listDTO = new ArrayList<>();
-    // for (Facturation f : list) {
-    // FacturationDTO facturationDTO = new FacturationDTO();
-    // facturationDTO = mappeFacturation.fromFacturation(f);
-    // listDTO.add(facturationDTO);
-    // }
-    // return listDTO;
+        List<Facturation> list = new ArrayList<>();
+        list = facturationRepository.findAll();
+        List<FacturationDTO> listDTO = new ArrayList<>();
+        for (Facturation f : list) {
+            FacturationDTO facturationDTO = new FacturationDTO();
+            facturationDTO.setId(f.getId());
+            facturationDTO.setCreatedAt(f.getCreatedAt());
+            facturationDTO.setMontant(f.getMontant());
+            facturationDTO.setPatientId(f.getPatientId());
+            // facturationDTO = mappeFacturation.fromFacturation(f);
+            listDTO.add(facturationDTO);
+        }
+        return listDTO;
 
-    // }
-
-    public FacturationDTO handleFindById(long id) {
-        log.info("Finding facture...");
-        if (facturationRepository.findById(id).isPresent()) {
-            return mappeFacturation.fromFacturation(facturationRepository.findById(id));
-        } else
-            throw new RuntimeException("la facture avec l'identifiant " + id + "est introuvable");
     }
 
-    // public FacturationDTO findById(Long id) {
-    // if (facturationRepository.findById(id) != null) {
-    // Facturation facturation = new Facturation();
-    // facturation = facturationRepository.findById(id).get();
-    // return mappeFacturation.fromFacturation(facturation);
-    // } else {
-    // return null;
-    // }
-    // }
+    public FacturationDTO findById(Long id) {
+        if (facturationRepository.findById(id) != null) {
+            Facturation facturation = new Facturation();
+            facturation = facturationRepository.findById(id).get();
+            FacturationDTO facturationDTO = new FacturationDTO();
+            facturationDTO.setId(facturation.getId());
+            facturationDTO.setCreatedAt(facturation.getCreatedAt());
+            facturationDTO.setMontant(facturation.getMontant());
+            facturationDTO.setPatientId(facturation.getPatientId());
+            return facturationDTO;
+        } else {
+            return null;
+        }
+    }
 
 }
