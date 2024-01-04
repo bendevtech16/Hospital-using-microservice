@@ -3,9 +3,11 @@ package uy1.inf331.patientservice.web;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import uy1.inf331.patientservice.config.GlobalConfig;
 
 @RestController
 public class ConfigTestController {
@@ -17,6 +19,8 @@ public class ConfigTestController {
     private int x1;
     @Value("${patient.params.x2}")
     private int x2;
+    @Autowired
+    private GlobalConfig globalConfig;
 
     @GetMapping("/config-test")
     public Map<String, Integer> configTest() {
@@ -26,5 +30,9 @@ public class ConfigTestController {
         map.put("x1", x1);
         map.put("x2", x2);
         return map;
+    }
+    @GetMapping("/testConfig")
+    public  GlobalConfig testConfig(){
+        return globalConfig;
     }
 }

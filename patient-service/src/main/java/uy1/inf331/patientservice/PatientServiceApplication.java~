@@ -4,18 +4,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import lombok.AllArgsConstructor;
 
-import uy1.inf331.patientservice.config.GlobalConfig;
 import uy1.inf331.patientservice.repository.MedecinRepository;
 import uy1.inf331.patientservice.repository.PatientRepository;
 
 @SpringBootApplication
-@EnableConfigurationProperties(GlobalConfig.class)
 @EnableTransactionManagement
 @EnableAutoConfiguration
 @AllArgsConstructor
