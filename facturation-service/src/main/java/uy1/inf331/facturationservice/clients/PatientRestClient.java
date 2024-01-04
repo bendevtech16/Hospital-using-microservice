@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import uy1.inf331.facturationservice.model.Patient;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @FeignClient(name = "PATIENT-SERVICE")
