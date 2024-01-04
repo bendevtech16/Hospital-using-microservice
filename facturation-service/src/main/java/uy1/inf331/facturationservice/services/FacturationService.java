@@ -7,12 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import uy1.inf331.facturationservice.dto.FacturationDTO;
 import uy1.inf331.facturationservice.entities.Facturation;
 import uy1.inf331.facturationservice.mappers.MappeFacturation;
-import uy1.inf331.facturationservice.model.Patient;
 import uy1.inf331.facturationservice.repository.FacturationRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 

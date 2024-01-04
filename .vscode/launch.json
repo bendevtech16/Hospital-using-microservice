@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PatientsApplication",
+            "request": "launch",
+            "mainClass": "uy1.infl3.patients.PatientsApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "FacturationServiceApplication",
             "request": "launch",
             "mainClass": "uy1.inf331.facturationservice.FacturationServiceApplication",
