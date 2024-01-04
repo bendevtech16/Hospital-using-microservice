@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import uy1.inf331.facturationservice.model.Patient;
 
 @Data
 @ToString
@@ -21,4 +22,5 @@ public class FacturationDTO {
     private Double montant;
 
     private Long patientId;
+    private Patient patient;
 }

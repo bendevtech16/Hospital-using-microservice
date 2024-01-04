@@ -1,12 +1,15 @@
 package uy1.inf331.facturationservice.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
+import uy1.inf331.facturationservice.clients.PatientRestClient;
 import uy1.inf331.facturationservice.dto.FacturationDTO;
+import uy1.inf331.facturationservice.model.Patient;
 import uy1.inf331.facturationservice.services.FacturationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,15 +22,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class FacturationRestController {
 
     private final FacturationService facturationService;
+    private final PatientRestClient patientRestClient;
 
     @GetMapping("/facturations")
     public List<FacturationDTO> handLeFindAll() {
-        return facturationService.findAll();
+        List<FacturationDTO> facturationDTOList = facturationService.findAll();
+        facturationDTOList.forEach(facture->{
+            facture.setPatient(patientRestClient.findPatientById(facture.getPatientId()));
+        });
+        return facturationDTOList;
     }
 
     @GetMapping("/facturations/{id}")
     public FacturationDTO handLeFindById(@PathVariable Long id) {
-        return facturationService.findById(id);
+        FacturationDTO facturationDTO =facturationService.findById(id);
+        Patient patient =patientRestClient.findPatientById(facturationDTO.getPatientId());
+        facturationDTO.setPatient(patient);
+        return facturationDTO;
     }
 
     @DeleteMapping("/delete/{id}")

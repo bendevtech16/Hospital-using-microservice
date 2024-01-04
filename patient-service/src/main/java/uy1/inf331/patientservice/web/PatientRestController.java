@@ -21,6 +21,7 @@ import uy1.inf331.patientservice.services.PatientServiceImpl;
 public class PatientRestController {
     private final PatientServiceImpl patientServiceImpl;
 
+
     /**
      * returne la liste des patients
      *

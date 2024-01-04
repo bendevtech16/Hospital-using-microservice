@@ -84,7 +84,6 @@ public class FacturationService implements Ifacturation {
         return listDTO;
 
     }
-
     public FacturationDTO findById(Long id) {
         if (facturationRepository.findById(id) != null) {
             Facturation facturation = new Facturation();
