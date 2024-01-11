@@ -12,6 +12,7 @@
         <module name="facturation-service" />
         <module name="gateway-service" />
         <module name="discovery-service" />
+        <module name="dossiers-medicaux" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-service" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
+      <module name="dossiers-medicaux" options="-parameters" />
       <module name="facturation-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="patient-service" options="-parameters" />
