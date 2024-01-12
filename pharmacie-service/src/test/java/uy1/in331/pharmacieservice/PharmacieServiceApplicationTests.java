@@ -1,10 +1,10 @@
-package uy1.inf331.dossiersmedicaux;
+package uy1.in331.pharmacieservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DossiersMedicauxApplicationTests {
+class PharmacieServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -12,10 +12,13 @@
         <option value="$PROJECT_DIR$/patient-services/pom.xml" />
         <option value="$PROJECT_DIR$/patients/pom.xml" />
         <option value="$PROJECT_DIR$/dossiers-medicaux/pom.xml" />
+        <option value="$PROJECT_DIR$/dossiersMedical-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pharmacie-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/dossiers-medicaux/pom.xml" />
         <option value="$PROJECT_DIR$/patient-services/pom.xml" />
         <option value="$PROJECT_DIR$/patients/pom.xml" />
       </set>

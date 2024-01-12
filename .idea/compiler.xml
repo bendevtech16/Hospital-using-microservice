@@ -7,15 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="patient-service" />
         <module name="config-service" />
-        <module name="facturation-service" />
         <module name="gateway-service" />
+        <module name="pharmacie-service" />
+        <module name="dossiersMedical-service" />
+        <module name="patient-service" />
+        <module name="facturation-service" />
         <module name="discovery-service" />
-        <module name="dossiers-medicaux" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dossiers-medicaux" target="17" />
       <module name="patient-services" target="17" />
       <module name="patients" target="17" />
     </bytecodeTargetLevel>
@@ -25,11 +27,13 @@
       <module name="config-service" options="-parameters" />
       <module name="discovery-service" options="-parameters" />
       <module name="dossiers-medicaux" options="-parameters" />
+      <module name="dossiersMedical-service" options="-parameters" />
       <module name="facturation-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="patient-service" options="-parameters" />
       <module name="patient-services" options="-parameters" />
       <module name="patients" options="-parameters" />
+      <module name="pharmacie-service" options="-parameters" />
     </option>
   </component>
 </project>

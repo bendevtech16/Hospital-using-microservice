@@ -8,13 +8,14 @@
 		<version>3.1.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>uy1.inf331</groupId>
-	<artifactId>dossiers-medicaux</artifactId>
+	<groupId>uy1.in331</groupId>
+	<artifactId>pharmacie-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dossiers-medicaux</name>
+	<name>pharmacie-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -63,16 +64,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--&lt;!&ndash; communication entre les microservices.... &ndash;&gt;
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		&lt;!&ndash; circuit breaker resilience4j pour resoudre les probleme de non disponibilites de microservices&ndash;&gt;
+		<!-- circuit breaker resilience4j pour resoudre les probleme de non disponibilites de microservices-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
-		</dependency>-->
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -85,6 +85,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>
