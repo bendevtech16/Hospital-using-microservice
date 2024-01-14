@@ -35,11 +35,11 @@ private MappeDossierMedical mappeDossierMedical;
     @Override
     public List<DossierMedicalDTO> getAllDossiersMedicaux() throws DossierMedicalException {
         log.info("Obtention de tous les dossiers medicaux...");
-        List<DossierMedical> dossierMedicalList =new ArrayList<>();
-        dossierMedicalList = dossierMedicalRepository.findAll();
-        List<DossierMedicalDTO> dossierMedicalDTOList = new ArrayList<>();
-
-            for (DossierMedical doss: dossierMedicalList) {
+        if (dossierMedicalRepository.findAll() != null){
+            List<DossierMedical> dossierMedicals = dossierMedicalRepository.findAll();
+            List<DossierMedicalDTO>dossierMedicalDTOS =new ArrayList<>();
+            for (DossierMedical doss: dossierMedicals
+                 ) {
                 DossierMedicalDTO  dossierMedicalDTO = new DossierMedicalDTO();
                 dossierMedicalDTO.setId(doss.getId());
                 dossierMedicalDTO.setNom(doss.getNom());
@@ -50,10 +50,14 @@ private MappeDossierMedical mappeDossierMedical;
                 dossierMedicalDTO.setPatientId(doss.getPatientId());
                 dossierMedicalDTO.setPatient(doss.getPatient());
                 //dossierMedicalDTO = mappeDossierMedical.fromDossierMedical(doss);
-                dossierMedicalDTOList.add(dossierMedicalDTO);
-            }
-            return dossierMedicalDTOList;
+                dossierMedicalDTOS.add(dossierMedicalDTO);
 
+            }
+            return dossierMedicalDTOS;
+        }
+        else {
+            throw  new  DossierMedicalException("la liste des dossiers medicaux est vide.");
+        }
     }
 
     @Override

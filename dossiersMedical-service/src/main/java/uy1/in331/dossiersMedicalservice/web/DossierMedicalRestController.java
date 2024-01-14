@@ -18,7 +18,14 @@ public class DossierMedicalRestController {
     private DossierMedicalService dossierMedicalService;
     @GetMapping("/dossiers")
     public List<DossierMedicalDTO> handleFindAll() throws DossierMedicalException {
-        return dossierMedicalService.getAllDossiersMedicaux();
+        List<DossierMedicalDTO> list = dossierMedicalService.getAllDossiersMedicaux();
+        System.out.println("***************************************");
+        for (DossierMedicalDTO dto:list
+             ) {
+            System.out.println(dto.toString());
+        }
+        System.out.println("****************************************");
+        return list;
     }
     @GetMapping("get/{id}")
     public Optional<DossierMedical> handlegetOne(@PathVariable long id){
