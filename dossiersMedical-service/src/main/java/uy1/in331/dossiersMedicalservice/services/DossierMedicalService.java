@@ -64,10 +64,21 @@ private MappeDossierMedical mappeDossierMedical;
     }
 
     @Override
-    public Optional<DossierMedical> getDossierMedicalById(Long id) {
+    public DossierMedicalDTO getDossierMedicalById(Long id) {
       log.info("fetching dossierMedical...");
-      if (dossierMedicalRepository.findById(id).isPresent()){
-         return dossierMedicalRepository.findById(id);
+      if (dossierMedicalRepository.findById(id)!=null){
+          DossierMedical dossierMedical = new DossierMedical();
+          dossierMedical = dossierMedicalRepository.findById(id).get();
+          DossierMedicalDTO medicalDTO = new DossierMedicalDTO();
+          medicalDTO.setId(dossierMedical.getId());
+          medicalDTO.setNom(dossierMedical.getNom());
+          medicalDTO.setAntecedents(dossierMedical.getAntecedents());
+          medicalDTO.setTraitement(dossierMedical.getTraitement());
+          medicalDTO.setDiagnostique(dossierMedical.getDiagnostique());
+          medicalDTO.setDateCreation(dossierMedical.getDateCreation());
+          medicalDTO.setPatient(dossierMedical.getPatient());
+          medicalDTO.setPatientId(dossierMedical.getPatientId());
+         return medicalDTO;
       }
       else
           throw new RuntimeException("le dossier avec l'identifiant " + id + "est introuvable");

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface InterfaceDossierMedical {
     List<DossierMedicalDTO> getAllDossiersMedicaux() throws DossierMedicalException;
-    Optional<DossierMedical> getDossierMedicalById(Long id);
+    DossierMedicalDTO getDossierMedicalById(Long id);
     DossierMedicalDTO createDossierMedical(DossierMedicalDTO dossierMedicalDTO);
     DossierMedicalDTO updateDossierMedical(Long id, DossierMedicalDTO dossierMedicalDTO);
     void deleteDossierMedical(Long id) throws FindByIdNotFoundExeception;
