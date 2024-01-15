@@ -116,8 +116,7 @@ private MappeDossierMedical mappeDossierMedical;
         dossierMedicalDTO1.setDateCreation(medical.getDateCreation());
         dossierMedicalDTO1.setPatientId(medical.getPatientId());
         dossierMedicalDTO1.setPatient(medical.getPatient());
-        //DossierMedical dossierMedical =mappeDossierMedical.fromDossierMedicalDTO(medicalDTO);
-        //DossierMedical dossierMedical1 =dossierMedicalRepository.save(dossierMedical);
+
         return dossierMedicalDTO1;
 
     }
