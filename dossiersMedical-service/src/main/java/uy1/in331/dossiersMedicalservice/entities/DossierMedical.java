@@ -13,8 +13,8 @@ public class DossierMedical {
     private String nom;
     private LocalDate  dateCreation;
     private String diagnostique;
-    private  String antecedents;
-    private     String traitement;
+    private String antecedents;
+    private String traitement;
     private long patientId;
     @Transient
     private Patient patient;

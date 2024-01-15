@@ -72,18 +72,18 @@ public class FacturationServiceApplication {
 						.montant(Math.random()*80000)
 						.patientId(patient.getId())
 						.build());
-			facturationRepository.save(Facturation.builder()
-					.createdAt(LocalDate.now())
-					.id(null)
-					.montant(Math.random()*80000)
-					.patientId(patient.getId())
-					.build());
-			facturationRepository.save(Facturation.builder()
-					.createdAt(LocalDate.now())
-					.id(null)
-					.montant(Math.random()*80000)
-					.patientId(patient.getId())
-					.build());
+				facturationRepository.save(Facturation.builder()
+						.createdAt(LocalDate.now())
+						.id(null)
+						.montant(Math.random()*80000)
+						.patientId(patient.getId())
+						.build());
+				facturationRepository.save(Facturation.builder()
+						.createdAt(LocalDate.now())
+						.id(null)
+						.montant(Math.random()*80000)
+						.patientId(patient.getId())
+						.build());
 			});
 		};
 	}

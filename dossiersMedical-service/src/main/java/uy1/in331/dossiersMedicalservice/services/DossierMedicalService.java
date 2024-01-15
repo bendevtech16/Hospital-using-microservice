@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uy1.in331.dossiersMedicalservice.dto.DossierMedicalDTO;
 import uy1.in331.dossiersMedicalservice.entities.DossierMedical;
@@ -24,7 +25,9 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class DossierMedicalService implements  InterfaceDossierMedical{
+    @Autowired
 private  DossierMedicalRepository dossierMedicalRepository;
+    @Autowired
 private MappeDossierMedical mappeDossierMedical;
 
     /**
@@ -35,29 +38,29 @@ private MappeDossierMedical mappeDossierMedical;
     @Override
     public List<DossierMedicalDTO> getAllDossiersMedicaux() throws DossierMedicalException {
         log.info("Obtention de tous les dossiers medicaux...");
-        if (dossierMedicalRepository.findAll() != null){
-            List<DossierMedical> dossierMedicals = dossierMedicalRepository.findAll();
+        //if (dossierMedicalRepository.findAll() != null){
+        List<DossierMedical> dossierMedicals = new ArrayList<>();
+            dossierMedicals = dossierMedicalRepository.findAll();
             List<DossierMedicalDTO>dossierMedicalDTOS =new ArrayList<>();
-            for (DossierMedical doss: dossierMedicals
+            for (DossierMedical d: dossierMedicals
                  ) {
                 DossierMedicalDTO  dossierMedicalDTO = new DossierMedicalDTO();
-                dossierMedicalDTO.setId(doss.getId());
-                dossierMedicalDTO.setNom(doss.getNom());
-                dossierMedicalDTO.setDateCreation(doss.getDateCreation());
-                dossierMedicalDTO.setDiagnostique(doss.getDiagnostique());
-                dossierMedicalDTO.setAntecedents(doss.getAntecedents());
-                dossierMedicalDTO.setTraitement(doss.getTraitement());
-                dossierMedicalDTO.setPatientId(doss.getPatientId());
-                dossierMedicalDTO.setPatient(doss.getPatient());
-                //dossierMedicalDTO = mappeDossierMedical.fromDossierMedical(doss);
+                dossierMedicalDTO.setId(d.getId());
+                dossierMedicalDTO.setNom(d.getNom());
+                dossierMedicalDTO.setDiagnostique(d.getDiagnostique());
+                dossierMedicalDTO.setAntecedents(d.getAntecedents());
+                dossierMedicalDTO.setTraitement(d.getTraitement());
+                dossierMedicalDTO.setDateCreation(d.getDateCreation());
+                dossierMedicalDTO.setPatientId(d.getPatientId());
+                dossierMedicalDTO.setPatient(d.getPatient());
                 dossierMedicalDTOS.add(dossierMedicalDTO);
-
             }
             return dossierMedicalDTOS;
-        }
-        else {
+        //}
+        /*else {
+            System.out.println("************** error **********************");
             throw  new  DossierMedicalException("la liste des dossiers medicaux est vide.");
-        }
+        }*/
     }
 
     @Override

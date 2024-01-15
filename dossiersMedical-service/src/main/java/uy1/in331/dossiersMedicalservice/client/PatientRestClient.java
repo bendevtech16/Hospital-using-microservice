@@ -17,7 +17,6 @@ public interface PatientRestClient {
     @GetMapping("/service-patient/patients")
     @CircuitBreaker(name = "patientService", fallbackMethod = "getAllDefaultPatient")
     List<Patient> allPatient();
-
     default Patient getDefaultPatient(Long id, Exception exception) {
         Patient patient = new Patient();
         patient.setId(id);
@@ -27,7 +26,6 @@ public interface PatientRestClient {
         patient.setTelephone("not available");
         return patient;
     }
-
     default List<Patient> getAllDefaultPatient(Exception exception) {
         return List.of();
 

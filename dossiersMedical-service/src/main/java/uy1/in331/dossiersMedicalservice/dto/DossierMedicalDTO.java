@@ -17,6 +17,6 @@ public class DossierMedicalDTO {
     private String diagnostique;
     private String antecedents;
     private String traitement;
-    private long patientId;
+    private Long patientId;
     private Patient patient;
 }

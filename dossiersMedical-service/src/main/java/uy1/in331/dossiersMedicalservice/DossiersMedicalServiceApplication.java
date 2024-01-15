@@ -55,6 +55,14 @@ public class DossiersMedicalServiceApplication {
 					.traitement("rougeole, paludisme, hepatite")
 					.patientId(patient.getId())
 					.build());
+			dossierMedicalRepository.save(DossierMedical.builder()
+					.dateCreation(LocalDate.now())
+					.nom("tounde jean")
+					.antecedents("allergique d'anana")
+					.diagnostique("12kal de protide, 11kal de glucide")
+					.traitement("consommation de la pasteque...")
+					.patientId(patient.getId())
+					.build());
 		    });
 	 };
 	}

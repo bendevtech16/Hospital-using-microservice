@@ -18,9 +18,7 @@ import uy1.inf331.facturationservice.model.Patient;
 public class FacturationDTO {
     private Long id;
     private LocalDate createdAt;
-
     private Double montant;
-
     private Long patientId;
     private Patient patient;
 }
