@@ -3,6 +3,8 @@ package uy1.inf331.facturationservice.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @AllArgsConstructor
+@EnableFeignClients
 @RequestMapping("/facturation-service")
 public class FacturationRestController {
 

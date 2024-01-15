@@ -87,10 +87,38 @@ private MappeDossierMedical mappeDossierMedical;
     @Override
     public DossierMedicalDTO createDossierMedical(DossierMedicalDTO dossierMedicalDTO) {
         DossierMedicalDTO medicalDTO = new DossierMedicalDTO();
-        medicalDTO = dossierMedicalDTO;
-        DossierMedical dossierMedical =mappeDossierMedical.fromDossierMedicalDTO(medicalDTO);
-        DossierMedical dossierMedical1 =dossierMedicalRepository.save(dossierMedical);
-        return mappeDossierMedical.fromDossierMedical(dossierMedical1);
+        medicalDTO.setId(dossierMedicalDTO.getId());
+        medicalDTO.setNom(dossierMedicalDTO.getNom());
+        medicalDTO.setDateCreation(dossierMedicalDTO.getDateCreation());
+        medicalDTO.setDiagnostique(dossierMedicalDTO.getDiagnostique());
+        medicalDTO.setTraitement(dossierMedicalDTO.getTraitement());
+        medicalDTO.setAntecedents(dossierMedicalDTO.getAntecedents());
+        medicalDTO.setPatientId(dossierMedicalDTO.getPatientId());
+        medicalDTO.setPatient(dossierMedicalDTO.getPatient());
+
+        DossierMedical dossierMedical1 = new DossierMedical();
+        dossierMedical1.setId( medicalDTO.getId());
+        dossierMedical1.setNom( medicalDTO.getNom());
+        dossierMedical1.setDateCreation( medicalDTO.getDateCreation());
+        dossierMedical1.setDiagnostique( medicalDTO.getDiagnostique());
+        dossierMedical1.setTraitement( medicalDTO.getTraitement());
+        dossierMedical1.setAntecedents( medicalDTO.getAntecedents());
+        dossierMedical1.setPatientId( medicalDTO.getPatientId());
+        dossierMedical1.setPatient( medicalDTO.getPatient());
+        DossierMedical medical = dossierMedicalRepository.save(dossierMedical1);
+
+        DossierMedicalDTO dossierMedicalDTO1 = new DossierMedicalDTO();
+        dossierMedicalDTO1.setId(medical.getId());
+        dossierMedicalDTO1.setNom(medical.getNom());
+        dossierMedicalDTO1.setTraitement(medical.getTraitement());
+        dossierMedicalDTO1.setDiagnostique(medical.getDiagnostique());
+        dossierMedicalDTO1.setAntecedents(medical.getAntecedents());
+        dossierMedicalDTO1.setDateCreation(medical.getDateCreation());
+        dossierMedicalDTO1.setPatientId(medical.getPatientId());
+        dossierMedicalDTO1.setPatient(medical.getPatient());
+        //DossierMedical dossierMedical =mappeDossierMedical.fromDossierMedicalDTO(medicalDTO);
+        //DossierMedical dossierMedical1 =dossierMedicalRepository.save(dossierMedical);
+        return dossierMedicalDTO1;
 
     }
 

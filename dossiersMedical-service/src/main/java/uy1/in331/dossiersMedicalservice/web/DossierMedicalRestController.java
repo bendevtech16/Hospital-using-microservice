@@ -1,6 +1,8 @@
 package uy1.in331.dossiersMedicalservice.web;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.*;
 import uy1.in331.dossiersMedicalservice.client.PatientRestClient;
 import uy1.in331.dossiersMedicalservice.dto.DossierMedicalDTO;
@@ -13,6 +15,8 @@ import java.util.List;
 
 
 @RestController
+@EnableFeignClients
+@AllArgsConstructor
 @RequestMapping("/dossier-medical")
 public class DossierMedicalRestController {
     @Autowired
@@ -48,9 +52,10 @@ public class DossierMedicalRestController {
     }
     @PostMapping("/save")
     public  DossierMedicalDTO handleSaving(@RequestBody DossierMedicalDTO dossierMedicalDTO){
+        Patient patient =patientRestClient.findPatientById(dossierMedicalDTO.getPatientId());
+        dossierMedicalDTO.setPatient(patient);
         return  dossierMedicalService.createDossierMedical(dossierMedicalDTO);
     }
-
     /**
      * supression du dossier medical par id.
      * @param id
