@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import uy1.in331.dossiersMedicalservice.client.PatientRestClient;
 import uy1.in331.dossiersMedicalservice.dto.DossierMedicalDTO;
-import uy1.in331.dossiersMedicalservice.entities.DossierMedical;
 import uy1.in331.dossiersMedicalservice.exceptions.DossierMedicalException;
 import uy1.in331.dossiersMedicalservice.exceptions.FindByIdNotFoundExeception;
 import uy1.in331.dossiersMedicalservice.model.Patient;
 import uy1.in331.dossiersMedicalservice.services.DossierMedicalService;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/dossier-medical")

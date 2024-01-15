@@ -39,7 +39,14 @@ public class FacturationService implements Ifacturation {
         facturation.setPatientId(facturationDTO2.getPatientId());
         facturationDTO2.setPatient(facturationDTO2.getPatient());
         Facturation facturationEnregistrer = facturationRepository.save(facturation);
-        return mappeFacturation.fromFacturation(facturationEnregistrer);
+
+        FacturationDTO facturationDTO1 = new FacturationDTO();
+        facturationDTO1.setId(facturationEnregistrer.getId());
+        facturationDTO1.setCreatedAt(facturationEnregistrer.getCreatedAt());
+        facturationDTO1.setPatient(facturationEnregistrer.getPatient());
+        facturationDTO1.setMontant(facturationEnregistrer.getMontant());
+        facturationDTO1.setPatientId(facturationEnregistrer.getPatientId());
+        return facturationDTO1;
     }
 
     public FacturationDTO update(Long id, FacturationDTO facturationDTO) {
