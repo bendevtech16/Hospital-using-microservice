@@ -20,6 +20,12 @@ public class DossierMedicalRestController {
     private DossierMedicalService dossierMedicalService;
     @Autowired
     private PatientRestClient patientRestClient;
+
+    /**
+     *
+     * @return la liste des dossiers medicaux...
+     * @throws DossierMedicalException
+     */
     @GetMapping("/dossiers")
     public List<DossierMedicalDTO> handleFindAll() throws DossierMedicalException {
         List<DossierMedicalDTO> list = dossierMedicalService.getAllDossiersMedicaux();
@@ -28,6 +34,12 @@ public class DossierMedicalRestController {
         });
         return list;
     }
+
+    /**
+     * returne un dossier medical par id...
+     * @param id
+     * @return
+     */
     @GetMapping("/dossiers/{id}")
     public DossierMedicalDTO handlegetOne(@PathVariable long id){
         DossierMedicalDTO dossierMedicalDTO =dossierMedicalService.getDossierMedicalById(id);
@@ -39,10 +51,23 @@ public class DossierMedicalRestController {
     public  DossierMedicalDTO handleSaving(@RequestBody DossierMedicalDTO dossierMedicalDTO){
         return  dossierMedicalService.createDossierMedical(dossierMedicalDTO);
     }
+
+    /**
+     * supression du dossier medical par id.
+     * @param id
+     * @throws FindByIdNotFoundExeception
+     */
     @DeleteMapping("/delete/{id}")
     public  void  handleDeleteById(long id) throws FindByIdNotFoundExeception {
         dossierMedicalService.deleteDossierMedical(id);
     }
+
+    /**
+     * la mise a jour  du  dossier medical...
+     * @param id
+     * @param dossierMedicalDTO
+     * @return
+     */
     @PutMapping("/update/{id}")
     public DossierMedicalDTO handleUpdate(@PathVariable long id, @RequestBody DossierMedicalDTO dossierMedicalDTO){
        return dossierMedicalService.updateDossierMedical(id, dossierMedicalDTO);

@@ -23,7 +23,7 @@ public interface PatientRestClient {
         patient.setId(id);
         patient.setName("Not vailable");
         patient.setAge(0);
-        patient.setEmail("notAvailabletEmail");
+        patient.setEmail("notAvailableEmail");
         patient.setTelephone("not available");
         return patient;
     }

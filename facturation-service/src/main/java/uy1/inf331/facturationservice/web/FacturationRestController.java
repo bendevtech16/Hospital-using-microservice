@@ -46,13 +46,15 @@ public class FacturationRestController {
         facturationService.deleteById(id);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public FacturationDTO handleUpdate(@PathVariable long id, @RequestBody FacturationDTO facturationDTO) {
         return facturationService.update(id, facturationDTO);
     }
 
     @PostMapping("/save")
-    public FacturationDTO handLeSave(@RequestBody FacturationDTO facturationDTO) {
+    public FacturationDTO handLeSave(@RequestBody FacturationDTO facturationDTO ) {
+        Patient patient =patientRestClient.findPatientById(facturationDTO.getPatientId());
+        facturationDTO.setPatient(patient);
         return facturationService.savingFacturation(facturationDTO);
     }
 

@@ -30,14 +30,15 @@ public class FacturationService implements Ifacturation {
         facturationDTO2.setCreatedAt(facturationDTO.getCreatedAt());
         facturationDTO2.setMontant(facturationDTO.getMontant());
         facturationDTO2.setPatientId(facturationDTO.getPatientId());
+        facturationDTO2.setPatient(facturationDTO.getPatient());
 
         Facturation facturation = new Facturation();
         facturation.setId(facturationDTO2.getId());
         facturation.setCreatedAt(facturationDTO2.getCreatedAt());
         facturation.setMontant(facturationDTO2.getMontant());
         facturation.setPatientId(facturationDTO2.getPatientId());
+        facturationDTO2.setPatient(facturationDTO2.getPatient());
         Facturation facturationEnregistrer = facturationRepository.save(facturation);
-
         return mappeFacturation.fromFacturation(facturationEnregistrer);
     }
 
@@ -46,7 +47,7 @@ public class FacturationService implements Ifacturation {
             System.out.println("facture not found...");
             return null;
         } else {
-            Facturation facturation = new Facturation();
+            Facturation facturation = facturationRepository.findById(id).get();
             facturation.setId(id);
             facturation.setCreatedAt(facturationDTO.getCreatedAt());
             facturation.setMontant(facturationDTO.getMontant());
@@ -58,6 +59,7 @@ public class FacturationService implements Ifacturation {
             facturationDTO2.setCreatedAt(facturationEnregistrer.getCreatedAt());
             facturationDTO2.setMontant(facturationEnregistrer.getMontant());
             facturationDTO2.setPatientId(facturationEnregistrer.getPatientId());
+
             return facturationDTO2;
         }
 
