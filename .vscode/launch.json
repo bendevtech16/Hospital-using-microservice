@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GatewayServiceApplication",
+            "request": "launch",
+            "mainClass": "uy1.inf331.gatewayservice.GatewayServiceApplication",
+            "projectName": "gateway-service"
+        },
+        {
+            "type": "java",
             "name": "PatientsApplication",
             "request": "launch",
             "mainClass": "uy1.infl3.patients.PatientsApplication",
