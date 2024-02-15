@@ -1,0 +1,8 @@
+services:
+  uy1-discovery-service:
+    build: ./discovery-service
+    container_name: uy1-discovery-service
+    ports:
+     - '8761:8761'
+    expose:
+      - '8761'
